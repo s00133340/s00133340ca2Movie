@@ -1,0 +1,53 @@
+﻿
+@model MovieCa2s00133340.Models.movie
+
+@{
+    ViewBag.Title = "Create";
+}
+
+
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+   
+    <div class="panel panel-info">
+        <div class="panel-heading">
+       <div class="Lead">Movie</div> 
+           
+        </div>
+        <div class="row">
+        <div class="form group col-xs-4">
+            @Html.LabelFor(model => model.movieName)   
+             @Html.TextBoxFor(model => model.movieName, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.movieName)
+        </div>
+
+        <div class="form group col-xs-4">
+            @Html.LabelFor(model => model.movielength)
+            @Html.TextBoxFor(model => model.movielength, new {@class= "form-control" })
+            @Html.ValidationMessageFor(model => model.movielength)
+        </div>
+
+         <div class="form group col-xs-4">
+            @Html.LabelFor(model => model.genre)
+            @Html.TextBoxFor(model => model.genre, new {@class= "form-control" })
+            @Html.ValidationMessageFor(model => model.genre)
+        </div>
+            </div>
+       
+
+        <p>
+              <button class="btn btn-success"><span class="glyphicon glyphicon-plus"></span>Create</button>
+        </p>
+         </div>
+
+}
+
+<div>
+    <a class =" btn btn-primary" href="@Url.Action("Index")"><span class=" glyphicon glyphicon-home"></span>&nbsp;Moive List</a>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

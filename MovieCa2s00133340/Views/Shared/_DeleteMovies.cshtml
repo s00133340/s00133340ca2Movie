@@ -1,0 +1,31 @@
+﻿@model MovieCa2s00133340.Models.movie
+
+
+
+
+    <div class="panel panel-danger">
+        <div class="panel-heading">
+            <h2 style="text-align:center">Confirm deletion of @Model.movieName</h2>
+        </div>
+    
+    <div class="panel-body">
+       <!-- deleting the movie -->
+        <fieldset>
+            <legend style="text-align:center; font-size:large" >Delete movie</legend>
+
+            <div style="text-align:center">
+                Do you want to delete @Html.DisplayFor(model => model.movieName)?
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+                        <p>
+            <a class="btn btn-info"href="@Url.Action("Index")" style="text-align:center"><span class="glyphicon glyphicon-remove"></span>Cancel</a>
+            <button class="btn btn-danger" style="text-align:center"><span class="glyphicon glyphicon-trash"></span>Delete</button>
+        </p>
+                }
+            </div>
+        </fieldset>
+        </div>
+    </div>
+ 
+

@@ -1,0 +1,50 @@
+﻿@model MovieCa2s00133340.Models.actor
+
+
+
+
+@{
+    ViewBag.Title = "EditActor";
+}
+
+<!-- Editing the actors -->
+
+<h2>EditActor</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Actor</legend>
+
+        @Html.HiddenFor(model => model.actorID)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.actorName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.actorAge)
+            @Html.ValidationMessageFor(model => model.actorName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.actorAge)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.actorAge)
+            @Html.ValidationMessageFor(model => model.actorAge)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

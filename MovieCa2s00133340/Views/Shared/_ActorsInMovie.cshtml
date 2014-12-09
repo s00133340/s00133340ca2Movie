@@ -1,0 +1,48 @@
+﻿@model IEnumerable<MovieCa2s00133340.Models.actor>
+<div class="panel panel-info">
+        <div class="panel-heading" style="font-size:20px">
+                <h2>List of Actors</h2>
+            </div>
+    <p>
+    @Html.ActionLink("Create New Actor", "CreateActor",null,new{@class = "btn btn-sm btn-primary"})
+</p>
+
+          <!-- actors in movies -->
+ @if (Model.Any())
+    {
+        <table class="table table-condensed table-striped">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.First().actorName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.First().actorAge)
+                </th>
+                <th></th>
+            </tr>
+
+            @if (Model != null)
+            {
+                foreach (var item in Model)
+                {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.actorName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.actorAge)
+                    </td>
+                    <td>
+                        <a onclick="showEditActor('@item.movieID','@item.actorID','@item.actorName','@item.actorAge')" class="btn btn-xs btn-info">Edit</a>
+                        @Html.ActionLink("Delete", "DeleteActors", new { id = item.actorAge }, new { @class = "btn btn-danger btn-xs" })
+                    </td>
+                </tr>
+                }
+            } 
+        </table>
+    }
+else
+{
+     <div><strong>No Actors in Movie</strong></div>
+ }
+    </div>

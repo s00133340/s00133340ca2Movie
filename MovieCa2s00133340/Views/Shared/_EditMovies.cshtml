@@ -1,0 +1,52 @@
+﻿@model MovieCa2s00133340.Models.movie
+
+
+@{
+    ViewBag.Title = "_EditMovies";
+}
+
+      <!-- editing the movie -->
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+      <div class="panel panel-warning">
+        <div class="panel-heading">
+       <h2 style="text-align:center">Edite Movie Details</h2>
+            </div>
+        @Html.HiddenFor(model => model.movieID)
+
+        <div class="form group col-xs-4" style="text-align:center; padding:10px;">
+            @Html.LabelFor(model => model.movieName)
+            @Html.TextBoxFor(model => model.movieName, new {@class="form-control" })
+            @Html.ValidationMessageFor(model => model.movieName)
+           
+        </div>
+
+        <div class="from group col-xs-4" style="text-align:center; padding:10px;">
+            @Html.LabelFor(model => model.movielength)
+            @Html.TextBoxFor(model => model.movielength, new {@class="form-control" })
+            @Html.ValidationMessageFor(model => model.movielength)
+        </div>
+
+        <div class="form group col-xs-4" style="text-align:center; padding:10px;">
+            @Html.LabelFor(model => model.genre)
+            @Html.TextBoxFor(model => model.genre, new {@class="form-control" })
+            @Html.ValidationMessageFor(model => model.genre)
+          
+        </div>
+         
+            <button class="btn btn-success" style="text-align:center; padding:10px;"><span class="glyphicon glyphicon-ok "></span> Save Changes</button>
+        
+          </div>
+          
+    
+ 
+}
+
+<div>
+    
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

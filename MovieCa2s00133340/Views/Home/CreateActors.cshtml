@@ -1,0 +1,53 @@
+﻿@model MovieCa2s00133340.Models.actor
+
+
+@{
+    ViewBag.Title = "CreateActor";
+}
+
+<h2>CreateActor</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Actor</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.actorName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.actorName)
+            @Html.ValidationMessageFor(model => model.actorName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.actorAge)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.actorAge)
+            @Html.ValidationMessageFor(model => model.actorAge)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.movie)
+)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.movie)
+            @Html.ValidationMessageFor(model => model.movie)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
